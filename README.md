@@ -6,4 +6,4 @@ Class:- earphones.<br>
 Attrbutes:-Brand, Earphones_type, Cost.
 
 
-[Heroku server](https://fwb67thodati.herokuapp.com/)
+[Heroku server](https://db67thodati.herokuapp.com/)
