@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to the #{title}
+  P If life were predictable it would cease to be life, and be without flavor.  
+  button(type="button", class="btn btn-primary",onclick="update()") Press Me
+
+  div(id="target") text of Display
+  script.  
+   var client_count=0;
+    function update() {
+       client_count++;
+       document.getElementById("target").innerHTML=`Value now ${client_count}`;
+     }
+
+  a(href='earphones') earphones
+  

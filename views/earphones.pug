@@ -1,0 +1,36 @@
+
+extends layout
+
+block content
+  h1= title
+  p Earphones results
+  div(class="listening-device")
+        div(class="row")
+            -
+                let mattress = [
+                    {
+                        "Brand": "Samsung Galaxy",
+                        "Earphones_type": "wireless",
+                        "Cost": "$60"
+                    },
+                    {
+                        "Brand": "JBL",
+                        "Earphones_type": "wireless",
+                        "Cost": "$100"
+                    },
+                    {
+                        "Brand": "Apple",
+                        "Earphones_type": "wired",
+                        "Cost": "$120"
+                    },                   
+                ]
+            each v,index in mattress
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.Brand}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.Earphones_type}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.Cost}
+
+                script.                
+                      function buy(intemNo)
+                      {
+                            alert(`you purchased Item ${intemNo+1}`)
+                      }
