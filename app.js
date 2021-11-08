@@ -9,6 +9,37 @@ var usersRouter = require('./routes/users');
 var earphonesRouter = require('./routes/earphones');
 var addmodsRouter = require('./routes/addmods');
 var selectorRouter = require('./routes/selector');
+var Earphone = require("./models/earphone");
+
+// We can seed the collection if needed on server start 
+  async function recreateDB(){ 
+  // Delete everything 
+  await Earphone.deleteMany(); 
+ 
+  let instance1 = new
+  
+  
+  Earphone({Brand:"Samsung Galaxy",  Earphones_type:"wireless", Cost:60}); 
+      instance1.save( function(err,doc) { 
+      if(err) return console.error(err); 
+      console.log("First object saved") 
+       }); 
+       /*let instance2 = new
+  Earphone({Brand:"JBL",  Earphones_type:"wireless", Cost:100}); 
+       instance2.save( function(err,doc) { 
+       if(err) return console.error(err); 
+       console.log("First object saved") 
+        }); 
+        let instance3 = new 
+  Earphone({Brand:"Apple",  Earphones_type:"wired", Cost:120}); 
+        instance3.save( function(err,doc) { 
+        if(err) return console.error(err); 
+        console.log("First object saved") 
+         }); */
+} 
+ 
+let reseed = true; 
+if (reseed) { recreateDB();} 
 
 var app = express();
 
@@ -43,5 +74,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+  const connectionString =  process.env.MONGO_CON 
+  mongoose = require('mongoose'); 
+  mongoose.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: true}); 
 
 module.exports = app;
