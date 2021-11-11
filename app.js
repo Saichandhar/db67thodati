@@ -13,6 +13,7 @@ var Earphone = require("./models/earphone");
 var resourceRouter = require('./routes/resource');
 
 
+
 // We can seed the collection if needed on server start 
   async function recreateDB(){ 
   // Delete everything 
@@ -56,6 +57,7 @@ app.use('/earphones', earphonesRouter);
 app.use('/addmods', addmodsRouter);
 app.use('/selector', selectorRouter);
 app.use('/resource', resourceRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
