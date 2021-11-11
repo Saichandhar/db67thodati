@@ -16,26 +16,21 @@ var Earphone = require("./models/earphone");
   // Delete everything 
   await Earphone.deleteMany(); 
  
-  let instance1 = new
-  
-  
-  Earphone({Brand:"Samsung Galaxy",  Earphones_type:"wireless", Cost:60}); 
-      instance1.save( function(err,doc) { 
+  let instance1 = new Earphone({Brand:"Samsung Galaxy",  Earphones_type:"wireless", Cost:60}); 
+  instance1.save( function(err,doc) { 
       if(err) return console.error(err); 
       console.log("First object saved") 
        }); 
-       /*let instance2 = new
-  Earphone({Brand:"JBL",  Earphones_type:"wireless", Cost:100}); 
-       instance2.save( function(err,doc) { 
+  let instance2 = new Earphone({Brand:"JBL",  Earphones_type:"wireless", Cost:100}); 
+  instance2.save( function(err,doc) { 
        if(err) return console.error(err); 
        console.log("First object saved") 
         }); 
-        let instance3 = new 
-  Earphone({Brand:"Apple",  Earphones_type:"wired", Cost:120}); 
-        instance3.save( function(err,doc) { 
+  let instance3 = new Earphone({Brand:"Apple",  Earphones_type:"wired", Cost:120}); 
+  instance3.save( function(err,doc) { 
         if(err) return console.error(err); 
         console.log("First object saved") 
-         }); */
+         }); 
 } 
  
 let reseed = true; 
