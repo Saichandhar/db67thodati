@@ -24,12 +24,12 @@ var Earphone = require("./models/earphone");
   let instance2 = new Earphone({Brand:"JBL",  Earphones_type:"wireless", Cost:100}); 
   instance2.save( function(err,doc) { 
        if(err) return console.error(err); 
-       console.log("First object saved") 
+       console.log("Second object saved") 
         }); 
   let instance3 = new Earphone({Brand:"Apple",  Earphones_type:"wired", Cost:120}); 
   instance3.save( function(err,doc) { 
         if(err) return console.error(err); 
-        console.log("First object saved") 
+        console.log("Third object saved") 
          }); 
 } 
  
