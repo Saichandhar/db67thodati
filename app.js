@@ -10,6 +10,8 @@ var earphonesRouter = require('./routes/earphones');
 var addmodsRouter = require('./routes/addmods');
 var selectorRouter = require('./routes/selector');
 var Earphone = require("./models/earphone");
+var resourceRouter = require('./routes/resource');
+
 
 // We can seed the collection if needed on server start 
   async function recreateDB(){ 
