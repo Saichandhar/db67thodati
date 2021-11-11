@@ -5,4 +5,4 @@ const earphoneSchema = mongoose.Schema({
  Cost: Number 
 }) 
  
-module.exports = mongoose.model("Earphone", earphoneSchema)
+module.exports = mongoose.model("earphone", earphoneSchema)
