@@ -34,7 +34,7 @@ var resourceRouter = require('./routes/resource');
         if(err) return console.error(err); 
         console.log("Third object saved") 
          }); 
-} 
+}   
  
 let reseed = true; 
 if (reseed) { recreateDB();} 
