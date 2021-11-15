@@ -19,17 +19,17 @@ var resourceRouter = require('./routes/resource');
   // Delete everything 
   await earphone.deleteMany(); 
  
-  let instance1 = new earphone({Brand:"Samsung Galaxy",  Earphones_type:"wireless", Cost:60}); 
+  let instance1 = new earphone({Brand:"Samsung Galaxy",  earphone_type:"wireless", Cost:60}); 
   instance1.save( function(err,doc) { 
       if(err) return console.error(err); 
       console.log("First object saved") 
        }); 
-  let instance2 = new earphone({Brand:"JBL",  Earphones_type:"wireless", Cost:100}); 
+  let instance2 = new earphone({Brand:"JBL",  earphone_type:"wireless", Cost:100}); 
   instance2.save( function(err,doc) { 
        if(err) return console.error(err); 
        console.log("Second object saved") 
         }); 
-  let instance3 = new earphone({Brand:"Apple",  Earphones_type:"wired", Cost:120}); 
+  let instance3 = new earphone({Brand:"Apple",  earphone_type:"wired", Cost:120}); 
   instance3.save( function(err,doc) { 
         if(err) return console.error(err); 
         console.log("Third object saved") 

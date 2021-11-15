@@ -50,10 +50,25 @@ exports.earphone_delete = function(req, res) {
 }; 
  
 // Handle earphone update form on PUT. 
-exports.earphone_update_put = function(req, res) { 
-    res.send('NOT IMPLEMENTED: earphone update PUT' + req.params.id); 
+exports.earphone_update_put = async function(req, res) { 
+    console.log(`update on id ${req.params.id} with body 
+${JSON.stringify(req.body)}`) 
+    try { 
+        let toUpdate = await earphone.findById( req.params.id) 
+        // Do updates of properties 
+        if(req.body.Brand)  
+               toUpdate.Brand = req.body.Brand; 
+        if(req.body.earphone_type) toUpdate.earphone_type = req.body.earphone_type; 
+        if(req.body.Cost) toUpdate.Cost = req.body.Cost; 
+        let result = await toUpdate.save(); 
+        console.log("Success " + result) 
+        res.send(result) 
+    } catch (err) { 
+        res.status(500) 
+        res.send(`{"error": ${err}: Update for id ${req.params.id} 
+failed`); 
+    } 
 }; 
-
 //  VIEWS 
 // Handle a show all view 
 exports.earphone_view_all_Page = async function(req, res) { 
