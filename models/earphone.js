@@ -1,7 +1,7 @@
 const mongoose = require("mongoose") 
 const earphoneSchema = mongoose.Schema({ 
  Brand: String, 
- Earphones_type: String, 
+ earphone_type: String, 
  Cost: Number 
 }) 
  

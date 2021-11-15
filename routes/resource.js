@@ -3,29 +3,32 @@ var router = express.Router();
 
 // Require controller modules. 
 var api_controller = require('../controllers/api');
-var costume_controller = require('../controllers/earphone');
+var earphone_controller = require('../controllers/earphone');
 
 /// API ROUTE /// 
 
 // GET resources base. 
 router.get('/', api_controller.api);
 
-/// COSTUME ROUTES /// 
+/// earphone ROUTES /// 
 
-// POST request for creating a Costume.  
-router.post('/earphone', costume_controller.earphone_create_post);
+// POST request for creating a earphone.  
+router.post('/earphone', earphone_controller.earphone_create_post);
 
-// DELETE request to delete Costume. 
-router.delete('/earphone/:id', costume_controller.earphone_delete);
+// DELETE request to delete earphone. 
+router.delete('/earphone/:id', earphone_controller.earphone_delete);
 
-// PUT request to update Costume. 
+// PUT request to update earphone. 
 router.put('/earphone/:id',
-    costume_controller.earphone_update_put);
+    earphone_controller.earphone_update_put);
 
-// GET request for one Costume. 
-router.get('/earphone/:id', costume_controller.earphone_detail);
+// GET request for one earphone. 
+router.get('/earphone/:id', earphone_controller.earphone_detail);
 
-// GET request for list of all Costume items. 
-router.get('/earphone', costume_controller.earphone_list);
+// GET request for list of all earphone items. 
+router.get('/earphone', earphone_controller.earphone_list);
+
+/* GET detail earphone page */ 
+router.get('earphone/detail', earphone_controller.earphone_view_one_Page); 
 
 module.exports = router;
