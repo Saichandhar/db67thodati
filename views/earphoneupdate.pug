@@ -1,0 +1,43 @@
+extends layout 
+ 
+block content 
+  h1= title 
+  - let earphoneid = toShow._id 
+  - let brand = toShow.Brand 
+  - let earphone_typeq = toShow.earphone_type
+  - let Costp = toShow.Cost
+
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
+    div #{earphoneid} 
+  - let actionid = "/resource/earphone/" + earphoneid 
+ 
+  form(id='earphoneForm', action=actionid, method="PUT") 
+    div.form-group 
+        label.earphoneAttr(for='Brand ') earphone type 
+        input#Brand(type='text', name='Brand ', value= brand ) 
+    div.form-group 
+        label.earphoneAttr(for='earphone_type') earphone earphone_type
+        input#earphone_type(type='text', name='earphone_type', value= earphone_typeq ) 
+    div.form-group 
+        label.earphoneAttr(for='Cost') earphone Cost
+        input#Cost(type='number', name='Cost', value= Costp) 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['earphoneForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target))
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    });
