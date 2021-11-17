@@ -28,7 +28,7 @@ router.get('/earphone/:id', earphone_controller.earphone_detail);
 // GET request for list of all earphone items. 
 router.get('/earphone', earphone_controller.earphone_list);
 
-/* GET detail earphone page */ 
-router.get('earphone/detail', earphone_controller.earphone_view_one_Page); 
+
+
 
 module.exports = router;
