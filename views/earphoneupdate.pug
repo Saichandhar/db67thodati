@@ -2,42 +2,42 @@ extends layout
  
 block content 
   h1= title 
-  - let earphoneid = toShow._id 
-  - let brand = toShow.Brand 
-  - let earphone_typeq = toShow.earphone_type
-  - let Costp = toShow.Cost
-
-  div.row(class='mb-2') 
-    div.mr-1 ID is 
-    div #{earphoneid} 
-  - let actionid = "/resource/earphone/" + earphoneid 
- 
-  form(id='earphoneForm', action=actionid, method="PUT") 
-    div.form-group 
-        label.earphoneAttr(for='Brand ') earphone type 
-        input#Brand(type='text', name='Brand ', value= brand ) 
-    div.form-group 
-        label.earphoneAttr(for='earphone_type') earphone earphone_type
-        input#earphone_type(type='text', name='earphone_type', value= earphone_typeq ) 
-    div.form-group 
-        label.earphoneAttr(for='Cost') earphone Cost
-        input#Cost(type='number', name='Cost', value= Costp) 
-    input(type="submit") 
- 
-  script. 
-    document.forms['earphoneForm'].addEventListener('submit', (event) => { 
-      event.preventDefault(); 
-      // TODO do something here to show user that form is being submitted 
-      fetch(event.target.action, { 
-        method: 'PUT', 
-        body: new URLSearchParams(new FormData(event.target))
-      }).then((resp) => { 
-        return resp.json(); // or resp.text() or whatever the server sends 
-      }).then((body) => { 
-        alert("Update succeded") 
-        // TODO handle body 
-      }).catch((error) => { 
-        // TODO handle error 
-        alert("Update failed " + error ) 
-      }); 
-    });
+   if (toShow == null) 
+    h2 No instance to delete 
+   else 
+   - let id = toShow._id 
+   - let Brand = toShow.Brand 
+   - let earphone_type = toShow.earphone_type 
+   - let Cost = toShow.Cost 
+   div(class="card card-body bg-secondary text-white text-center" style="width: 30rem;" )
+     form(id='earphoneForm', action='/resource/earphone/'+id, method="PUT") 
+         div(class="form-group d-flex justify-content-evenly m-2")
+            label(for='Brand' class="col-sm-4") earphone Brand 
+            input#Brand(type='text', name='Brand' class="form-control" value=Brand) 
+         div(class="form-group d-flex justify-content-evenly m-2")
+            label(for='earphone_type' class="col-sm-4") earphone type 
+            input#earphone_type(type='text', name='earphone_type' class="form-control" value=earphone_type) 
+         div(class="form-group d-flex justify-content-evenly m-2")
+            label(for='Cost' class="col-sm-4") earphone Cost 
+            input#Cost(type='number', name='Cost' class="form-control" value=Cost) 
+         div(class='text-center')
+            input(type="submit" class="btn btn-secondary" ) 
+            a(href='/earphone' class="btn btn-secondary") Go To earphone
+    
+     script. 
+         document.forms['earphoneForm'].addEventListener('submit', (event) => { 
+         event.preventDefault(); 
+         // TODO do something here to show user that form is being submitted 
+         fetch(event.target.action, { 
+            method: 'PUT', 
+            body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+         }).then((resp) => { 
+            return resp.json(); // or resp.text() or whatever the server sends 
+         }).then((body) => { 
+            alert("Save succeded") 
+            // TODO handle body 
+         }).catch((error) => { 
+            // TODO handle error 
+            alert("Save failed " + error ) 
+         }); 
+         }); 

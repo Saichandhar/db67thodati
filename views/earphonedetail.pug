@@ -2,21 +2,25 @@ extends layout
  
 block content 
   h1= title 
- 
-  - let earphoneid = toShow._id 
-  - let Brand = toShow.Brand
+  if (toShow == null) 
+    h2 No instance to delete 
+  else 
+  - let id = toShow._id 
+  - let Brand = toShow.Brand 
   - let earphone_type = toShow.earphone_type 
-  - let Cost = toShow.Cost
-  div 
-    div.row 
-      div(class='earphoneAttr mr-3') earphone ID is: 
-      div #{earphoneid} 
-    div.row 
-      div(class='earphoneAttr mr-3') earphone Brand is: 
-      div #{Brand} 
-    div.row 
-      div(class='earphoneAttr mr-3') earphone_Type is: 
-      div #{earphone_type} 
-    div.row 
-      div(class='earphoneAttr mr-3') earphone Cost is: 
-      div #{Cost} 
+  - let Cost = toShow.Cost 
+  div(class="card card-body" style="width: 30rem;") 
+    div(class="row p-3 mb-2 bg-secondary text-white") 
+      div(class=' mr-3 col-sm-6') earphone ID: 
+      div(class=' mr-3 col-sm-6') #{id} 
+    div(class="row p-3 mb-2 bg-secondary text-white") 
+      div(class=' mr-3 col-sm-6') Brand: 
+      div(class=' mr-3 col-sm-6') #{Brand} 
+    div(class="row p-3 mb-2 bg-secondary text-white") 
+      div(class=' mr-3  col-sm-6') earphone_type  : 
+      div(class=' mr-3 col-sm-6')  #{earphone_type} 
+    div(class="row p-3 mb-2 bg-secondary text-white") 
+      div(class=' mr-3 col-sm-6') Cost: 
+      div(class=' mr-3 col-sm-6') $#{Cost}
+    div(class="d-flex flex-row justify-content-center")      
+            a(href='/earphone' class="btn btn-secondary") Go To earphone
