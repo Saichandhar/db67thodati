@@ -3,17 +3,22 @@ extends layout
 
 block content
   h1= title
-  p earphone results
-  div(class="listening-device")
-        div(class="row")
-            - let items = results
-               each v,index in items
-                div(class="col-sm-2" onclick=`buy(${index})`) #{v.Brand}
-                div(class="col-sm-2" onclick=`buy(${index})`) #{v.earphone_type}
-                div(class="col-sm-2" onclick=`buy(${index})`) #{v.Cost}
+  - let items = results;
+  - let o;
+  script.
+    function buy(x){
+      alert('purchased item ' + x)
+   } 
+  div(class='listening-device')
+    div(class='row m-1')
+    div(class="row row-cols-1 row-cols-sm-4 g-6")
+      each item, index in items
+        - let destination = `dispatch(\"/earphone/update?id=${item._id}\")`
+        div(class="card text-white bg-secondary mb-3" class='col' class='card' class='card-body' class='card-text' onclick='buy('+index+')') Item #{item.Brand}(#{item.earphone_type})is #{item.Cost}
+          <br><br>
+          button.btn( class="btn-danger ml-1", onclick= destination) Update
 
-                script.                
-                      function buy(intemNo)
-                      {
-                            alert(`you purchased Item ${intemNo+1}`)
-                      }
+  script.
+    function dispatch(path){
+      window.location.href=path
+    }
