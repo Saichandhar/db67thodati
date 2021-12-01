@@ -5,6 +5,15 @@ block content
   p Welcome to the #{title}
   P If life were predictable it would cease to be life, and be without flavor.  
   button(type="button", class="btn btn-primary",onclick="update()") Press Me
+  if (!user) 
+    a(href="/login") Login 
+    br 
+    a(href="/register") Register 
+  if (user) 
+    p You are currently logged in as #{user.username} 
+    a(href="/earphone") Take me to earphone 
+    br 
+    a(href="/logout") Logout 
 
   div(id="target") text of Display
   script.  
